@@ -1,4 +1,4 @@
-import numpy as np
+import random
 
 A = [0]
 #N = [0]
@@ -19,37 +19,64 @@ aloc = [0,0,0] # cria uma matriz vazia
 latencia = [12,8,3] #latencia nuvem em relacao basestation
 #NB.sort() #ordenar de acordo com latencia
 
-print("F",F) 
-print("FNvdu",Fvdu)  
-print("Nbanda",NB)  
-print("Nvdu",NVDu)      
-print("Aloc Nivel",aloc)   
-print("===================")  
-
 #gerar numeros aleatorios
 
-Fban = np.random.randint(100, size=(10, 10))
-Fvdu = np.random.randint(1,12,100)
-Flat = np.random.randint(1, size=100)
+F = []
 
-N =  np.random.randint(1, size=10)
-NB =  np.random.randint(10, size=(10, 10))
-NVDu =  np.random.randint(1,12,10)
+Fban= []
+Fvdu= []
+Flat= []
 
-#print(randnums)
+N=   []
+NB=  []#Demanda de base
+NVDu=[] #Demanda de VDUs 
 
-for a in range(1): #todas as BS
-  for n in range(3): #todas as nuvens
-    for f in range(5): #todas as funcoes possiveis da BS
-       if (F[f] == 0):
-          if((Fvdu[f] <= NVDu[n]) and (Fban[f] <= NB[n]) and (Flat[f]<=Lmax)):
-              NB[n]-=Fban[f]
-              NVDu[n]-=Fvdu[f]   
-              F[f] = 1
-              aloc[n]="*"
-              print("F", F)
-              print("FNvdu",Fvdu[f])  		
-              print("Nbanda",NB)  
-              print("Nvdu",NVDu)         
-              print("Aloc Nivel",aloc)   
-              print("===================") 
+aloc = [] 
+
+nuv = 10
+nfv = 50
+
+for _ in range(nfv):#nfv
+  #  saida.append(random.choice(range(100)))
+
+    F.append(0)
+
+    Fban.append(10)
+    Fvdu.append(random.choice(range(10)))
+    Flat.append(1)
+
+for _ in range(nuv):#nuvem
+  #  saida.append(random.choice(range(100)))
+
+    N.append(random.choice(range(10)))
+    NB.append(random.choice(range(30)))
+    NVDu.append(random.choice(range(10)))
+
+    aloc.append(0)
+
+print("F",F) 
+print("Fban", Fban)  
+print("Fvdu", Fvdu)  
+print("Flat", Flat)      
+print("N", N)  
+print("NB", NB)   
+print("NVDu", NVDu)    
+print("===================")  
+
+
+for a in range(1):
+    for n in range(nuv):
+        for f in range(nfv):
+            if (F[f] == 0):
+                if((Fvdu[f] <= NVDu[n]) and (Fban[f] <= NB[n]) and (Flat[f]<=Lmax)):
+                    NB[n]-=Fban[f]
+                    NVDu[n]-=Fvdu[f]
+                    F[f] = 1
+                    aloc[n]="*"
+                    print("F", F)
+                    print("FNvdu",Fvdu[f])
+                    print("Nbanda",NB)
+                    print("Nvdu",NVDu)
+                    print("Aloc Nivel",aloc)
+                    print("===================") 
+
