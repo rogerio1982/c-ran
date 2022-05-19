@@ -40,9 +40,11 @@ NVDu=[] #Demanda de VDUs
 
 aloc = [] 
 
-#setar numeros 
-nuv = 100
-nfv = 5000
+#setar numeros fakes
+
+A = 10
+nuv = 50
+nfv = 500
 
 for _ in range(nfv):#nfv
 
@@ -78,13 +80,13 @@ for a in range(1):
                     NB[n]-=Fban[f]
                     NVDu[n]-=Fvdu[f]
                     F[f] = 1
-                    aloc[n]="*"
-               #     print("F", F)
-               #     print("FNvdu",Fvdu[f])
-               #     print("Nbanda",NB)
-               #     print("Nvdu",NVDu)
-               #     print("Aloc Nivel",aloc)
-               #     print("===================") 
+                    #aloc[n]="*"
+                    #print("F", F)
+                    #print("FNvdu",Fvdu[f])
+                    #print("Nbanda",NB)
+                    #print("Nvdu",NVDu)
+                    #print("Aloc Nivel",aloc)
+                    #print("===================") 
 
 
 tempo_final=time.time() # em segundos
