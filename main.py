@@ -1,5 +1,12 @@
 import random
 
+import time
+
+tempo_inicial=time.time() # em segundos
+
+#parte do código que vamos verificar o tempo de execução
+
+
 A = [0]
 #N = [0]
 
@@ -33,11 +40,11 @@ NVDu=[] #Demanda de VDUs
 
 aloc = [] 
 
-nuv = 10
-nfv = 50
+#setar numeros 
+nuv = 100
+nfv = 5000
 
 for _ in range(nfv):#nfv
-  #  saida.append(random.choice(range(100)))
 
     F.append(0)
 
@@ -46,7 +53,6 @@ for _ in range(nfv):#nfv
     Flat.append(1)
 
 for _ in range(nuv):#nuvem
-  #  saida.append(random.choice(range(100)))
 
     N.append(random.choice(range(10)))
     NB.append(random.choice(range(30)))
@@ -54,14 +60,14 @@ for _ in range(nuv):#nuvem
 
     aloc.append(0)
 
-print("F",F) 
-print("Fban", Fban)  
-print("Fvdu", Fvdu)  
-print("Flat", Flat)      
-print("N", N)  
-print("NB", NB)   
-print("NVDu", NVDu)    
-print("===================")  
+#print("F",F) 
+#print("Fban", Fban)  
+#print("Fvdu", Fvdu)  
+#print("Flat", Flat)      
+#print("N", N)  
+#print("NB", NB)   
+#print("NVDu", NVDu)    
+#print("===================")  
 
 
 for a in range(1):
@@ -73,10 +79,14 @@ for a in range(1):
                     NVDu[n]-=Fvdu[f]
                     F[f] = 1
                     aloc[n]="*"
-                    print("F", F)
-                    print("FNvdu",Fvdu[f])
-                    print("Nbanda",NB)
-                    print("Nvdu",NVDu)
-                    print("Aloc Nivel",aloc)
-                    print("===================") 
+               #     print("F", F)
+               #     print("FNvdu",Fvdu[f])
+               #     print("Nbanda",NB)
+               #     print("Nvdu",NVDu)
+               #     print("Aloc Nivel",aloc)
+               #     print("===================") 
 
+
+tempo_final=time.time() # em segundos
+
+print("tempo", tempo_final - tempo_inicial)
