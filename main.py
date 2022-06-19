@@ -1,7 +1,6 @@
 import random
-
 import time
-
+import numpy as np
 tempo_inicial=time.time() # em segundos
 
 #parte do código que vamos verificar o tempo de execução
@@ -10,15 +9,19 @@ tempo_inicial=time.time() # em segundos
 A = [0]
 #N = [0]
 
-F = [0,0,0,0,0]
+F = [0,0,0,0,0,0,0,0,0,0]
 
-Fban= [10,10,10,10,10]
-Fvdu= [3,2,5,6,4]
-Flat= [1,1,1,1,1]
+
+
+Fvdu= [1,2,3,4,5,6,7,8,9,1]#[3,2,5,6,4]
+Fban= [4,2,6,2,8,6,9,3,4,9]
+Flat= [1,1,1,1,1,1,1,1,1,1]
 
 N=   [0,1,2]
-NB=  [30,20,10]#Demanda de base
-NVDu=[12,9,23] #Demanda de VDUs 
+NB=  [20,20,10]#Demanda de base
+NVDu=[10,90,230] #Demanda de VDUs 
+
+
 
 Lmax = 2 #limite banda total
 aloc = [0,0,0] # cria uma matriz vazia
@@ -27,67 +30,56 @@ latencia = [12,8,3] #latencia nuvem em relacao basestation
 #NB.sort() #ordenar de acordo com latencia
 
 #gerar numeros aleatorios
+#tam=1 #tam nuvem
+val= 10 #tam vetor
+#F= [random.randint(0, 0) for _ in range(val)]
+#Fban= [random.randint(0, 10) for _ in range(val)]
+Fvdu= [random.randint(1, 5) for _ in range(val)]
+#Flat= [random.randint(1, 1) for _ in range(val)]
 
-F = []
+#N = list(range(tam))
+#NB= [random.randint(10, 10) for _ in range(val)]
+#NVDu = [random.randint(10, 10) for _ in range(val)]
+#aloc = list(range(tam))
 
-Fban= []
-Fvdu= []
-Flat= []
+#print("Fvdu", Fvdu)
+#print("fban", Fban)
+print("Nvdu",NVDu)
+print("Nbanda",NB)
+print("Aloc",aloc)
 
-N=   []
-NB=  []#Demanda de base
-NVDu=[] #Demanda de VDUs 
-
-aloc = [] 
-
-#setar numeros fakes
-
-A = 10
-nuv = 50
-nfv = 500
-
-for _ in range(nfv):#nfv
-
-    F.append(0)
-
-    Fban.append(10)
-    Fvdu.append(random.choice(range(10)))
-    Flat.append(1)
-
-for _ in range(nuv):#nuvem
-
-    N.append(random.choice(range(10)))
-    NB.append(random.choice(range(30)))
-    NVDu.append(random.choice(range(10)))
-
-    aloc.append(0)
-
-#print("F",F) 
-#print("Fban", Fban)  
-#print("Fvdu", Fvdu)  
-#print("Flat", Flat)      
-#print("N", N)  
-#print("NB", NB)   
-#print("NVDu", NVDu)    
-#print("===================")  
-
-
+print("---")
 for a in range(1):
-    for n in range(nuv):
-        for f in range(nfv):
+    for n in range(1):
+        for f in range(10):
             if (F[f] == 0):
                 if((Fvdu[f] <= NVDu[n]) and (Fban[f] <= NB[n]) and (Flat[f]<=Lmax)):
                     NB[n]-=Fban[f]
                     NVDu[n]-=Fvdu[f]
                     F[f] = 1
-                    #aloc[n]="*"
-                    print("F", F)
-                    print("FNvdu",Fvdu[f])
-                    print("Nbanda",NB)
-                    print("Nvdu",NVDu)
-                    print("Aloc Nivel",aloc)
-                    print("===================") 
+                    aloc[n]="*"
+                    
+                  #  print("Fvdu", Fvdu)
+                   # print("Nbanda",NB)
+                   # print("Nvdu",NVDu)
+                  #  print("Aloc Nivel",aloc)
+                  #  print("===================") 
 
+print("Fvdu", Fvdu)
+print("fban", Fban)
+print("Nvdu",NVDu)
+print("Nbanda",NB)
+print("F",F)
+
+
+#vet=[]
+#cont=0
+#for x in range(10):
+#	if (aloc[x] == '*' ):
+#		vet.append(Fvdu[x])
+#		cont+=1
+#print("vet",vet)
+#print( np.mean(vet) )
 
 tempo_final=time.time() # em segundos
 
