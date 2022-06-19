@@ -81,12 +81,12 @@ for a in range(1):
                     NVDu[n]-=Fvdu[f]
                     F[f] = 1
                     #aloc[n]="*"
-                    #print("F", F)
-                    #print("FNvdu",Fvdu[f])
-                    #print("Nbanda",NB)
-                    #print("Nvdu",NVDu)
-                    #print("Aloc Nivel",aloc)
-                    #print("===================") 
+                    print("F", F)
+                    print("FNvdu",Fvdu[f])
+                    print("Nbanda",NB)
+                    print("Nvdu",NVDu)
+                    print("Aloc Nivel",aloc)
+                    print("===================") 
 
 
 tempo_final=time.time() # em segundos
