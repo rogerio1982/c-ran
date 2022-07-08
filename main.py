@@ -3,7 +3,7 @@ import time
 import numpy as np
 tempo_inicial=time.time() # em segundos
 
-#teste
+#testererere
 
 
 A = [0]
