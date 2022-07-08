@@ -3,7 +3,7 @@ import time
 import numpy as np
 tempo_inicial=time.time() # em segundos
 
-#parte do código que vamos verificar o tempo de execução
+#teste
 
 
 A = [0]
